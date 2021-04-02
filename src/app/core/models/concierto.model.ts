@@ -4,7 +4,7 @@ export interface ConciertoModel {
     artistas: string[];
     comuna:   Comuna;
     fecha:    number | string;
-    idFirebase: string;
+    id: number;
     imagen:   string;
     nombre:   string;
     precio:   Precio;
@@ -13,7 +13,7 @@ export interface ConciertoModel {
 
 export enum Comuna {
     Santiago = "Santiago",
-    Ñuñoa = "Ñuñoa",
+    Nunoa = "Ñuñoa",
 }
 
 export interface Precio {
@@ -27,10 +27,10 @@ export enum Moneda {
 }
 
 export enum Recinto {
-    ClubHípico = "Club Hípico",
+    ClubHipico = "Club Hípico",
     EstadioNacional = "Estadio Nacional",
     MovistarArena = "Movistar Arena",
     ParqueOHiggins = "Parque O'higgins",
     PuntoticketArena = "Puntoticket Arena",
-    TeatroCaupolicán = "Teatro Caupolicán",
+    TeatroCaupolican = "Teatro Caupolicán",
 }

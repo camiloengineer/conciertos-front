@@ -14,11 +14,15 @@ export class ConciertosService {
   constructor( private http: HttpClient ) { }
 
   getConciertos() {
-    return this.http.get(`${ this.url }/conciertos.json`)
+    return this.http.get(`${ this.url }`)
             .pipe(
               map( this.crearArreglo ),
               delay(0)
             );
+  }
+
+  getConcierto( id: string ) {
+    return this.http.get(`${ this.url }/${ id }`);
   }
 
   private crearArreglo( conciertosObj: object ) {
@@ -28,8 +32,6 @@ export class ConciertosService {
     Object.keys( conciertosObj ).forEach( key => {
 
       const concierto: ConciertoModel = conciertosObj[key];
-      concierto.idFirebase = key;
-
       conciertos.push( concierto );
     });
 

@@ -4,7 +4,7 @@ _Este es un proyecto Ángular 11 con Firebase_
 
 ## Comenzando 🚀
 
-_Esta aplicaciòn fue desplegada en firebase [https://conciertos-89fbc.firebaseapp.com](https://conciertos-89fbc.firebaseapp.com)._
+_Esta aplicación fue desplegada en firebase hosting [https://conciertos-89fbc.firebaseapp.com](https://conciertos-89fbc.firebaseapp.com) y utiliza los siguientes endpoints que puedes probar en postman [https://www.getpostman.com/collections/c54527d1289af63f94bf](https://www.getpostman.com/collections/c54527d1289af63f94bf)._
 
 _En caso que requieras obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas, puedes seguir estas instrucciones ._
 
@@ -62,6 +62,6 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
-* Tomemos un café para conversar de nuevos proyectos ☕. 
+* Conversemos sobre nuevos proyectos ☕. 
 
 ---

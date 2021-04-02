@@ -1,0 +1,44 @@
+<h1>{{ concierto?.nombre | uppercase }}</h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-4">
+        <img class="img fluid card-img-top" [src]="concierto?.imagen" [alt]="concierto?.nombre">
+        <br><br>
+        <button class="btn btn-outline-primary btn-block overwhite" [routerLink]="['/home']">Regresar</button>
+    </div>
+    <div class="col-md-8">
+        <h3>{{concierto?.recinto}} ({{ concierto?.comuna}} )</h3>
+        <hr>
+        <p>
+            <strong>Fecha:</strong> {{ concierto?.fecha | timestampToDate | date: 'dd/MM/yyyy' }}
+        </p>
+        <p>
+            <strong>Hora:</strong> {{ concierto?.fecha | timestampToDate | date: 'HH:mm'}}
+        </p>
+        <p *ngIf="concierto?.precio?.moneda === 'USD'">
+            <strong>Precio:</strong> {{ concierto?.precio?.monto | currency }} dólares.
+        </p>
+        <p *ngIf="concierto?.precio?.moneda === 'CLP'">
+            <strong>Precio:</strong> {{ concierto?.precio?.monto | currency: "CLP": "$": "1.0-0" | reemplazarSigno : ',' : '.' }} pesos.
+        </p>
+        <p>
+            <strong>Entradas:</strong><br>
+            <button *ngIf="!concierto?.agotado" class="btn btn-outline-success disabled w-50" type="button">
+                <i class="fa fa-smile-wink"></i>
+                Disponibles
+            </button>
+
+            <button *ngIf="concierto?.agotado" class="btn btn-outline-danger w-50 disabled" type="button">
+                <i class="fa fa-dizzy"></i>
+                Agotadas
+            </button>
+        </p>
+        <p *ngIf="concierto?.artistas.length > 1"><strong>Artistas Invitados:</strong></p>
+        <p *ngIf="concierto?.artistas.length === 1"><strong>Artista:</strong></p>
+        <div *ngIf="concierto?.artistas.length > 0" class="list-group">
+            <li class="list-group-item" *ngFor="let artista of concierto?.artistas">{{ artista }} </li>
+        </div>
+        <br>
+    </div>
+</div>

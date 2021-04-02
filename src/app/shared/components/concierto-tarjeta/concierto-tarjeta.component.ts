@@ -18,6 +18,6 @@ export class ConciertoTarjetaComponent implements OnInit {
   }
 
   verConcierto(): void {
-    console.log(this.concierto.idFirebase);
+    this.router.navigate( ['/detail', this.concierto.id]);
   }
 }

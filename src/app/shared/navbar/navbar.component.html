@@ -5,7 +5,18 @@
 
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" [routerLink]="['home']">
-            <img src="./../../../assets/img/logo_puntoticket.svg" class="icon" alt="">
+            <img src="./../../../assets/img/logo-puntoticket.svg" class="icon" alt="">
         </a>
     </nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                
+            </li>
+        </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar artista" aria-label="Search" (keyup.enter)="buscarConcierto(buscarTexto.value)" #buscarTexto>
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="button" (click)="buscarConcierto(buscarTexto.value)">Buscar</button>
+    </form>
+</div>
 </nav>

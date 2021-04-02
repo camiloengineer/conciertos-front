@@ -12,6 +12,10 @@ import { ConciertosComponent } from './shared/components/conciertos/conciertos.c
 import { ConciertoTarjetaComponent } from './shared/components/concierto-tarjeta/concierto-tarjeta.component';
 
 import { TimestampToDatePipe } from './shared/pipes/TimestampToDatePipe/timestamp-to-date.pipe';
+import { DetailComponent } from './pages/detail/detail/detail.component';
+import { ConciertoComponent } from './shared/components/concierto/concierto.component';
+import { ReemplazarSignoPipe } from './shared/pipes/ReemplazarSigno/reemplazar-signo.pipe';
+import { BuscadorComponent } from './shared/components/buscador/buscador.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { TimestampToDatePipe } from './shared/pipes/TimestampToDatePipe/timestam
     NavbarComponent,
     ConciertosComponent,
     ConciertoTarjetaComponent,
-    TimestampToDatePipe
+    TimestampToDatePipe,
+    DetailComponent,
+    ConciertoComponent,
+    ReemplazarSignoPipe,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,
