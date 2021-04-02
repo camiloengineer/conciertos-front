@@ -1,11 +1,19 @@
-<h1>{{ concierto?.nombre | uppercase }}</h1>
+<h1>{{ concierto?.nombre | uppercase }}
+</h1>
 <hr>
 
-<div class="row animated fadeIn fast">
+<div class="row animated fadeIn fast" *ngIf="!cargando">
     <div class="col-md-4">
         <img class="img fluid card-img-top" [src]="concierto?.imagen" [alt]="concierto?.nombre">
         <br><br>
         <button class="btn btn-outline-primary btn-block overwhite" [routerLink]="['/home']">Regresar</button>
+
+        <button *ngIf="!eliminado" class="btn btn-info mr-1 btn-block">
+            <i class="fa fa-pen"></i>
+        </button>
+        <button *ngIf="!eliminado" class="btn btn-danger btn-block" (click)="eliminarConcierto(concierto) ">
+            <i class="fa fa-trash"></i>
+        </button>
     </div>
     <div class="col-md-8">
         <h3>{{concierto?.recinto}} ({{ concierto?.comuna}} )</h3>
@@ -17,10 +25,11 @@
             <strong>Hora:</strong> {{ concierto?.fecha | timestampToDate | date: 'HH:mm'}}
         </p>
         <p *ngIf="concierto?.precio?.moneda === 'USD'">
-            <strong>Precio:</strong> {{ concierto?.precio?.monto | currency }} dólares.
+            <strong>Precio:</strong> {{ concierto?.precio?.monto | currency }} {{ concierto?.precio?.moneda }}
         </p>
         <p *ngIf="concierto?.precio?.moneda === 'CLP'">
-            <strong>Precio:</strong> {{ concierto?.precio?.monto | currency: "CLP": "$": "1.0-0" | reemplazarSigno : ',' : '.' }} pesos.
+            <strong>Precio:</strong> {{ concierto?.precio?.monto | currency: "CLP": "$": "1.0-0" | reemplazarSigno : ','
+            : '.' }}
         </p>
         <p>
             <strong>Entradas:</strong><br>
@@ -41,4 +50,14 @@
         </div>
         <br>
     </div>
+</div>
+
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor
+    </p>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConciertosService } from '../../../core/services/conciertos.service';
 import { ConciertoModel } from '../../../core/models/concierto.model'
 import Swal from 'sweetalert2';
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-conciertos',

@@ -1,14 +1,16 @@
 <div class="card animated fadeIn fast">
   <img class="card-img-top img-fluid" [src]="concierto.imagen" [alt]="concierto.nombre">
   <div class="card-block">
-    <h4 class="card-title">{{concierto.nombre}}</h4>
-    <p class="card-text">{{concierto.recinto}}</p>
+    <h4 class="card-title">{{concierto?.nombre}}</h4>
+    <p class="card-text">{{concierto?.recinto}}</p>
     <p class="card-text"><small class="text-muted">
-
         {{ concierto?.fecha | timestampToDate | date: 'dd/MM/yyyy' }} a las {{ concierto?.fecha | timestampToDate |
         date: 'HH:mm' }}
-
-      </small></p>
+      </small>
+      <br>
+      <label *ngIf="!concierto?.agotado" class="badge badge-success">Disponible</label>
+      <label *ngIf="concierto?.agotado" class="badge badge-danger">Agotado</label>
+    </p>
     <button type="button" (click)="verConcierto()" class="btn btn-outline-primary btn-block">
       Ver Más...
     </button>

@@ -25,6 +25,10 @@ export class ConciertosService {
     return this.http.get(`${ this.url }/${ id }`);
   }
 
+  deleteConcierto(id: number): any {
+    return this.http.delete(`${ this.url }/${ id }`);
+  }
+
   private crearArreglo( conciertosObj: object ) {
 
     const conciertos: ConciertoModel[] = [];

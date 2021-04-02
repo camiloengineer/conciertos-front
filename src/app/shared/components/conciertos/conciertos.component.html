@@ -1,5 +1,24 @@
 <h1></h1>
 <hr>
-<div class="card-columns">
+<div class="card-columns" *ngIf="!cargando && conciertos.length > 0">
     <app-concierto-tarjeta [concierto]="foo" *ngFor="let foo of conciertos"></app-concierto-tarjeta>
+</div>
+
+<div *ngIf="!cargando && conciertos.length === 0"
+     class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+      <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="cargando" 
+     class="alert alert-info text-center mt-3 animated fadeIn faster">
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">
+    Espere por favor
+  </p>
 </div>
