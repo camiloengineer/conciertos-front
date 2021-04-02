@@ -4,8 +4,9 @@ _Este es un proyecto Ángular 11 con Firebase_
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+_Esta aplicaciòn fue desplegada en firebase [https://conciertos-89fbc.firebaseapp.com](https://conciertos-89fbc.firebaseapp.com)._
 
+_En caso que requieras obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas, puedes seguir estas instrucciones ._
 
 ### Pre-requisitos 📋
 
@@ -20,7 +21,7 @@ _el primer paso es clonar el proyecto en tu local_
 $ git clone https://github.com/cgonzalezm1234/conciertos-front.git
 ```
 
-_luego tienes que instalar las dependencias
+_luego tienes que instalar las dependencias_
 
 ```
 npm i
@@ -30,8 +31,6 @@ _finalmente correr el proyecto desde la raìz del directorio del proyecto_
 ```
 ng serve
 ```
-
-_con esto tu podrás visualizar el listado de _
 
 ### Analice las pruebas de unit testing 🔩
 
@@ -53,16 +52,16 @@ firebase deploy
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [Angular CLI 11](https://cli.angular.io/) - Angular es un framework opensource desarrollado por Google para facilitar la creación y programación de aplicaciones web de una sola página, las webs SPA (Single Page Application).
-* [Firebase](https://firebase.google.com/) - Firebase se trata de una plataforma creada por Google, cuya principal función es desarrollar y facilitar la creación de webs y apps de elevada calidad de una forma rápida.
+* [Angular CLI 11](https://cli.angular.io/) - Angular es un framework opensource desarrollado por Google para desarrollar SPA (Single Page Application).
+* [Firebase](https://firebase.google.com/) - Firebase se trata de una plataforma creada por Google, cuya principal función es desarrollar webs y apps de elevada calidad de una forma rápida.
 
 ## Autores ✒️
 
-* **Camilo Gonzákez* - [Linkedin](https://www.linkedin.com/in/camilo-gonzalez-munoz/) y [Github](hhttps://github.com/cgonzalezm1234)
+* **Camilo González** - [Linkedin](https://www.linkedin.com/in/camilo-gonzalez-munoz/)
 
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
-* Tomemos un café para hablarme de nuevos proyectos☕. 
+* Tomemos un café para conversar de nuevos proyectos ☕. 
 
 ---
