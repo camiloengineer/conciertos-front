@@ -10,8 +10,9 @@ export class RegExpDirective {
 
   constructor(private el: ElementRef) {
   }
-
   @HostListener('keypress', ['$event'])
+
+  //Esta directiva filtra caracteres según una expresión regular
   onkeypress(event: KeyboardEvent) {
     if (!event.key.match(new RegExp(this.regExp))) {
       event.preventDefault();

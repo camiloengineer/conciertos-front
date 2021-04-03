@@ -13,6 +13,7 @@ export class ConciertosService {
 
   constructor( private http: HttpClient ) { }
 
+  //Obtiene listado de conciertos
   getConciertos() {
     return this.http.get(`${ this.url }`)
             .pipe(
@@ -21,14 +22,17 @@ export class ConciertosService {
             );
   }
 
+  //Obtiene un solo concierto por identificador
   getConcierto( id: string ) {
     return this.http.get(`${ this.url }/${ id }`);
   }
 
+  //Elimina concierto por identificador
   deleteConcierto(id: number): any {
     return this.http.delete(`${ this.url }/${ id }`);
   }
 
+  //Crea concierto, el identificador es es autogenerado internamente
   crearConcierto( concierto: ConciertoModel ) {
 
     return this.http.post(`${ this.url }`, concierto)
@@ -41,7 +45,15 @@ export class ConciertosService {
 
   }
 
+  //Actualiza un concierto por identificador
   actualizarConcierto( id: number, concierto: ConciertoModel ) {
+
+    const heroeTemp = {
+      ...concierto
+    };
+
+    delete heroeTemp.id;
+
     return this.http.put(`${ this.url }/${ id }`, concierto);
   }
 

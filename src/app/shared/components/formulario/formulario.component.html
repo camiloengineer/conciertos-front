@@ -1,12 +1,11 @@
-<h1>Crear concierto</h1>
+<h1>{{ textEncabezado }}</h1>
 <hr>
 <br>
-<form [formGroup]="conciertoForm" novalidate (ngSubmit)="onSaveForm()">
+<form [formGroup]="conciertoForm" novalidate (ngSubmit)="onSaveForm()" *ngIf="!cargando" >
     <div class="form-group row">
         <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
         <div class="col-sm-10">
-            <input type="text" id="nombre" maxlength="50" appRegExp="^[0-9a-zA-Z ñÑ]*$" placeholder="Nombre del concierto"
-                class="form-control" formControlName="textNombre">
+            <input type="text" id="nombre" maxlength="50" appRegExp="^[0-9a-zA-Z ñÑ]*$" placeholder="Nombre del concierto" class="form-control" formControlName="textNombre">
             <small class="msg-error"
                 *ngIf="conciertoForm.controls?.textNombre?.errors?.required && conciertoForm.controls?.textNombre?.dirty">El
                 nombre es requerido</small>
@@ -44,7 +43,7 @@
                 <option selected value="Club Hípico">Club Hípico</option>
                 <option value="Estadio Nacional">Estadio Nacional</option>
                 <option value="Parque O'higgins">Parque O'higgins</option>
-                <option value="Puntoticket Arena">Puntoticket Arena</option>
+                <option value="Movistar Arena">Movistar Arena</option>
                 <option value="Teatro Caupolicán">Teatro Caupolicán</option>
             </select>
             <small class="msg-error"
@@ -141,7 +140,8 @@
 
         </div>
         <div class="col-sm-5">
-            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Guardar</button>
+            <button type="submit" class="btn btn-primary btn-block"
+            ><i class="fa fa-save"></i> Guardar</button>
         </div>
         <div class="col-sm-5">
             <button class="btn btn-outline-primary overwhite btn-block" [routerLink]="['/home']">
@@ -155,3 +155,15 @@
         </div>
     </div>
 </form>
+
+
+<div *ngIf="cargando" 
+     class="alert alert-info text-center mt-3 animated fadeIn faster">
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">
+    Espere por favor
+  </p>
+</div>

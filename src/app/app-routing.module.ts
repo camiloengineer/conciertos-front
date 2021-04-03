@@ -7,12 +7,12 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { EditarComponent } from './pages/editar/editar.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'detail/:id', component: DetailComponent },
-  { path: 'buscar/:termino', component: BuscadorComponent },
-  { path: 'agregar', component: AgregarComponent },
-  { path: 'editar/:id', component: EditarComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  { path: 'home', component: HomeComponent }, //Página inicial
+  { path: 'detail/:id', component: DetailComponent }, //Detalle de concierto
+  { path: 'buscar/:termino', component: BuscadorComponent }, //Búsqueda de artistas ingresada desde el navbar
+  { path: 'agregar', component: AgregarComponent }, //Creación de un nuevo concierto
+  { path: 'editar/:id', component: EditarComponent }, //Edición de un concierto existente
+  { path: '**', pathMatch: 'full', redirectTo: 'home' } 
 ];
 
 @NgModule({

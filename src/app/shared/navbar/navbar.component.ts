@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  collapse: boolean = true;
+
   constructor( private router: Router ) { }
 
   ngOnInit(): void {
   }
-
+  //redirige al componente de búsqueda
   buscarConcierto( termino: string) {
     this.router.navigate(['/buscar', termino]);
   }

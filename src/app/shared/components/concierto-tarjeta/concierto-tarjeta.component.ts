@@ -18,6 +18,7 @@ export class ConciertoTarjetaComponent implements OnInit {
   }
 
   verConcierto(): void {
+    //redirige al detalle del concierto desde las cards del home
     this.router.navigate( ['/detail', this.concierto.id]);
   }
 }
