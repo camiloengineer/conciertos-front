@@ -1,0 +1,157 @@
+<h1>Crear concierto</h1>
+<hr>
+<br>
+<form [formGroup]="conciertoForm" novalidate (ngSubmit)="onSaveForm()">
+    <div class="form-group row">
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+            <input type="text" id="nombre" maxlength="50" appRegExp="^[0-9a-zA-Z ñÑ]*$" placeholder="Nombre del concierto"
+                class="form-control" formControlName="textNombre">
+            <small class="msg-error"
+                *ngIf="conciertoForm.controls?.textNombre?.errors?.required && conciertoForm.controls?.textNombre?.dirty">El
+                nombre es requerido</small>
+            <small class="msg-error" *ngIf="conciertoForm.controls?.textNombre?.errors?.minlength">Ingresa mínimo 5
+                caracteres</small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="imagen" class="col-sm-2 col-form-label">Url de la imagen</label>
+        <div class="col-sm-10">
+            <input type="text" id="imagen" placeholder="https://www.sitioweb.com/imagen.jpg" class="form-control"
+                formControlName="textImagen">
+            <small class="msg-error"
+                *ngIf="conciertoForm.controls?.textImagen?.errors?.required && conciertoForm.controls?.textImagen?.dirty">La
+                url es requerida</small>
+            <small class="msg-error" *ngIf="conciertoForm.controls?.textImagen?.errors?.pattern">Ingresa una URL válida
+                con extensión .jpg, .jpeg, .png o .gif</small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="fecha" class="col-2 col-form-label">Fecha y hora</label>
+        <div class="col-10">
+            <input class="form-control" formControlName="textFecha" type="datetime-local" id="fecha"
+                min="2021-01-01T00:00" max="2025-06-14T00:00">
+            <small class="msg-error"
+                *ngIf="conciertoForm.controls?.textFecha?.errors?.required && conciertoForm.controls?.textFecha?.dirty">La
+                fecha es requerida</small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="recinto" class="col-2 col-form-label">Recinto</label>
+        <div class="col-10">
+            <select class="form-control empty" id="recinto" formControlName="selectedRecinto">
+                <option selected disabled value="">Selecciona recinto</option>
+                <option selected value="Club Hípico">Club Hípico</option>
+                <option value="Estadio Nacional">Estadio Nacional</option>
+                <option value="Parque O'higgins">Parque O'higgins</option>
+                <option value="Puntoticket Arena">Puntoticket Arena</option>
+                <option value="Teatro Caupolicán">Teatro Caupolicán</option>
+            </select>
+            <small class="msg-error"
+                *ngIf="conciertoForm.controls?.selectedRecinto?.errors?.required && conciertoForm.controls?.selectedRecinto?.dirty">El
+                reciento es requerido</small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="comuna" class="col-2 col-form-label">Comuna</label>
+        <div class="col-10">
+            <select class="form-control empty" id="comuna" formControlName="selectedComuna">
+                <option selected disabled value="">Selecciona comuna</option>
+                <option selected value="Santiago">Santiago</option>
+                <option value="Ñuñoa">Ñuñoa</option>
+            </select>
+            <small class="msg-error"
+                *ngIf="conciertoForm.controls?.selectedComuna?.errors?.required && conciertoForm.controls?.selectedComuna?.dirty">La
+                comuna es requerido</small>
+        </div>
+    </div>
+    <hr>
+    <div class="form-group row">
+        <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+        <div class="col-sm-10">
+            <input type="text" id="precio" maxlength="7" appRegExp="^[0-9]*$" placeholder="9999" class="form-control"
+                formControlName="textPrecio">
+            <small class="msg-error"
+                *ngIf="conciertoForm.controls?.textPrecio?.errors?.required && conciertoForm.controls?.textPrecio?.dirty">El
+                precio es requerido</small>
+            <small class="msg-error" *ngIf="conciertoForm.controls?.textPrecio?.errors?.min">El precio es muy
+                bajo</small>
+        </div>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Moneda</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" formControlName="monedaRadio" id="clp" type="radio"
+                        name="monedaRadio" value="CLP" checked>
+                    <label class="form-check-label active" for="clp">
+                        CLP
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" formControlName="monedaRadio" id="usd" type="radio"
+                        name="monedaRadio" value="USD">
+                    <label class="form-check-label" for="usd">
+                        USD
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <hr>
+    <div class="form-group row" *ngFor="let control of artistas.controls; index as i">
+        <label for="nombreArtista" class="col-sm-2 col-form-label"><span *ngIf="i === 0">Artistas</span></label>
+        <div class="col-sm-8">
+            <input type="text" id="nombreArtista" maxlength="50" appRegExp="^[0-9a-zA-Z ñÑ]*$"
+                [formControl]="artistas.controls[i]" placeholder="Nombre del artista" class="form-control">
+        </div>
+        <div class="col-sm-1">
+            <button *ngIf="i > 0" (click)="removeArtista(i)" class="btn btn-outline-danger small float-right">
+                <i class="fa fa-trash small"></i>
+            </button>
+        </div>
+        <div *ngIf="artistas.length === i + 1" class="col-sm-1 icon-input">
+            <button (click)="addArtista(control.value)" class="btn  btn-outline-primary small float-left">
+                <i class="fa fa-plus small"></i>
+            </button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="form-group row">
+        <label for="nombre" class="col-sm-2 col-form-label">Entradas</label>
+        <div class="col-sm-10">
+
+    <button *ngIf="!agotado" (click)="agotado = true" class="btn btn-outline-success w-30" type="button">
+        <i class="fa fa-smile-wink"></i>
+        Disponibles
+    </button>
+
+    <button *ngIf="agotado" (click)="agotado = false" class="btn btn-outline-danger w-30" type="button">
+        <i class="fa fa-dizzy"></i>
+        Agotadas
+    </button>
+
+        </div>
+    </div>
+    <hr>
+    <div class="form-group row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-5">
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Guardar</button>
+        </div>
+        <div class="col-sm-5">
+            <button class="btn btn-outline-primary overwhite btn-block" [routerLink]="['/home']">
+                <i class="fa fa-arrow-left"></i> Regresar</button>
+        </div>
+        <div class="offset-sm-2 col-sm-10" *ngIf="success" >
+            <br>
+            <div class="alert alert-success text-center" role="alert">
+                ¡Concierto guardado correctamente!
+            </div>
+        </div>
+    </div>
+</form>

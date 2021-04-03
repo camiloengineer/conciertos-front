@@ -9,6 +9,7 @@ export interface ConciertoModel {
     nombre:   string;
     precio:   Precio;
     recinto:  Recinto;
+
 }
 
 export enum Comuna {

@@ -11,14 +11,14 @@ import { getLocaleDateFormat } from '@angular/common';
 })
 export class ConciertosComponent implements OnInit {
 
-  constructor( private ConciertosService: ConciertosService  ) { }
+  constructor( private conciertosService: ConciertosService  ) { }
 
   conciertos: ConciertoModel[] = [];
   cargando = false;
 
   ngOnInit(): void {
     this.cargando = true;
-    this.ConciertosService.getConciertos()
+    this.conciertosService.getConciertos()
       .subscribe( resp => {
         this.conciertos = resp;
         this.cargando = false;

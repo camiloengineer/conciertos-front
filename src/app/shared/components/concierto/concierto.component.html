@@ -6,14 +6,18 @@
     <div class="col-md-4">
         <img class="img fluid card-img-top" [src]="concierto?.imagen" [alt]="concierto?.nombre">
         <br><br>
-        <button class="btn btn-outline-primary btn-block overwhite" [routerLink]="['/home']">Regresar</button>
+        <button class="btn btn-outline-primary btn-block overwhite" [routerLink]="['/home']">
+            <i class="fa fa-arrow-left"></i> Regresar</button>
 
-        <button *ngIf="!eliminado" class="btn btn-info mr-1 btn-block">
+        <button *ngIf="!eliminado" [routerLink]="['/editar', concierto?.id]" class="btn btn-info mr-1 btn-block">
             <i class="fa fa-pen"></i>
         </button>
         <button *ngIf="!eliminado" class="btn btn-danger btn-block" (click)="eliminarConcierto(concierto) ">
             <i class="fa fa-trash"></i>
         </button>
+        <div class="alert alert-success" *ngIf="eliminado" role="alert">
+            Se eliminó correctamente
+        </div>
     </div>
     <div class="col-md-8">
         <h3>{{concierto?.recinto}} ({{ concierto?.comuna}} )</h3>
